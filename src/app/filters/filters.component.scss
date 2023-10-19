@@ -1,0 +1,50 @@
+.filters{
+  height: 100%;
+  bottom: 0px;
+  box-shadow: 0 0 1em black;
+  padding: 20px;
+}
+
+.div-filters{
+  padding: 20px;
+}
+
+
+.prices{
+  width:100%;
+  display:flex;
+  justify-content: space-evenly;
+}
+.price-input {
+  width: 80px;
+  text-align: right;
+}
+
+input.price-input::-webkit-outer-spin-button,
+input.price-input::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.price-input {
+  -moz-appearance: textfield;
+}
+
+.color-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.color-tres-bon-etat{
+  background-color: #43A047;
+}
+
+.color-etat-convenable{
+  background-color: #A5D6A7;
+}
+
+.color-pour-pieces{
+  background-color: #E8F5E9;
+}

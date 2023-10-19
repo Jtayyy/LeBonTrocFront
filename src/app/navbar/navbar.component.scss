@@ -1,0 +1,33 @@
+
+.navbar{
+  padding-left: 0;
+  padding-right: 0;
+  height: 80px;
+  box-shadow: 0 .125rem .25rem black;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+.btn-icon{
+  color: bisque;
+  border: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btn-right{
+  display:flex;
+  justify-content: right;
+}
+
+.searchbar {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+

@@ -1,0 +1,108 @@
+<div class="filters">
+  <div class="div-filters" style="display: flex; justify-content: center; align-items: center;">
+    <h2>Filtres de recherche</h2>
+  </div>
+
+  <div class="example-action-buttons" style="display: flex; justify-content: space-evenly">
+    <button mat-raised-button color="accent" (click)="openAll()">Ouvrir les onglets</button>
+    <button mat-raised-button color="accent" (click)="closeAll()">Fermer les onglets</button>
+  </div>
+  <mat-accordion class="example-headers-align" multi #accordion>
+
+    <div class="div-filters">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Localisation
+          </mat-panel-title>
+          <mat-panel-description style="justify-content: space-between">
+            Tous...
+            <mat-icon>place</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-slider min="0" max="50" step="5" showTickMarks discrete [displayWith]="formatLabel" style="width: 300px">
+          <input matSliderThumb>
+        </mat-slider>
+
+      </mat-expansion-panel>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="div-filters">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Type de bien
+          </mat-panel-title>
+          <mat-panel-description style="justify-content: space-between">
+            Tous...
+            <mat-icon>home</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div *ngFor="let item of items">
+          <section class="example-section">
+            <mat-checkbox class="example-margin" [(ngModel)]="item.checked"> {{item.name}}</mat-checkbox>
+          </section>
+        </div>
+
+      </mat-expansion-panel>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="div-filters">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Couleur
+          </mat-panel-title>
+          <mat-panel-description style="justify-content: space-between">
+            Tous...
+            <mat-icon>color_lens</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div *ngFor="let color of colors">
+          <section class="example-section">
+            <div class="color-circle" [style.backgroundColor]="color.color"></div>
+            <mat-checkbox class="example-margin" [(ngModel)]="color.checked"> {{color.name}}</mat-checkbox>
+          </section>
+        </div>
+
+      </mat-expansion-panel>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="div-filters">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Etat du bien
+          </mat-panel-title>
+          <mat-panel-description style="justify-content: space-between">
+            Tous...
+            <mat-icon>thumbs_up_down</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div>
+          <mat-chip-listbox aria-label="Fish selection" multiple="true">
+            <mat-chip-option [selected]="true" style="background-color: #A5D6A7">Neuf</mat-chip-option>
+            <mat-chip-option [selected]="true">Très bon état</mat-chip-option>
+            <mat-chip-option [selected]="true">Bon état</mat-chip-option>
+            <mat-chip-option [selected]="true">Etat convenable</mat-chip-option>
+            <mat-chip-option [selected]="true">Pour pièces</mat-chip-option>
+          </mat-chip-listbox>
+        </div>
+
+      </mat-expansion-panel>
+    </div>
+  </mat-accordion>
+
+  <button mat-raised-button color="primary">Appliquer les filtres</button>
+
+</div>

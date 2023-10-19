@@ -1,0 +1,37 @@
+<mat-toolbar class="navbar mat-primary">
+  <div class="container-fluid" style="margin-left: 0; margin-right: 0;width:100%">
+    <div class="col-md-3" style="display:flex; justify-content: center">
+      <span>Le Bon Troc</span>
+    </div>
+    <div class="col-md-6" >
+      <form class="searchbar">
+        <mat-form-field style="width: 100%; flex-direction: row">
+          <mat-label>Search...</mat-label>
+          <input type="text"
+                 placeholder="Pick one"
+                 aria-label="Search"
+                 matInput
+                 [formControl]="myControl"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="col-md-3 btn-right">
+      <button mat-mini-fab class="btn-icon mat-accent-A100" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-mini-fab class="btn-icon mat-accent-A400" aria-label="Example icon-button with share icon">
+        <mat-icon>face</mat-icon>
+      </button>
+    </div>
+
+    <span class="example-spacer"></span>
+  </div>
+
+
+</mat-toolbar>
