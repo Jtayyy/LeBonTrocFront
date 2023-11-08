@@ -4,8 +4,7 @@
   </div>
 
   <div class="example-action-buttons" style="display: flex; justify-content: space-evenly">
-    <button mat-raised-button color="accent" (click)="openAll()">Ouvrir les onglets</button>
-    <button mat-raised-button color="accent" (click)="closeAll()">Fermer les onglets</button>
+    <button (click)="openAll()" mat-raised-button style="background-color:{{colorAccordeon}}">{{msgAccordeon}}</button>
   </div>
   <mat-accordion class="example-headers-align" multi #accordion>
 
@@ -21,7 +20,7 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <mat-slider min="0" max="50" step="5" showTickMarks discrete [displayWith]="formatLabel" style="width: 300px">
+        <mat-slider min="0" max="50" step="5" showTickMarks discrete [displayWith]="formatLabel" style="width: 200px">
           <input matSliderThumb>
         </mat-slider>
 
@@ -34,7 +33,7 @@
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Type de bien
+            Types
           </mat-panel-title>
           <mat-panel-description style="justify-content: space-between">
             Tous...
@@ -57,7 +56,7 @@
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Couleur
+            Couleurs
           </mat-panel-title>
           <mat-panel-description style="justify-content: space-between">
             Tous...
@@ -81,7 +80,7 @@
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Etat du bien
+            Etats
           </mat-panel-title>
           <mat-panel-description style="justify-content: space-between">
             Tous...

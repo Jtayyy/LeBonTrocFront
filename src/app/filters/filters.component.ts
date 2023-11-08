@@ -29,6 +29,9 @@ class Color {
 })
 export class FiltersComponent {
 
+  openAccordeon: boolean = false;
+  msgAccordeon: string = "Ouvrir les onglets"
+  colorAccordeon: string = "#A5D6A7"
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
   armoire = new Home('Armoire', false);
@@ -60,11 +63,18 @@ export class FiltersComponent {
   ];
 
   openAll() {
-    this.accordion.openAll();
-  }
+    if (this.openAccordeon) {
+      this.accordion.closeAll();
+      this.openAccordeon = false;
+      this.msgAccordeon = "Ouvrir les onglets"
+      this.colorAccordeon = "#A5D6A7"
 
-  closeAll() {
-    this.accordion.closeAll();
+    } else {
+      this.accordion.openAll();
+      this.openAccordeon = true;
+      this.msgAccordeon = "Fermer les onglets"
+      this.colorAccordeon = "palevioletred"
+    }
   }
 
   formatLabel(value: number): string {

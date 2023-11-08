@@ -9,6 +9,7 @@ import { FiltersComponent } from './filters/filters.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AsyncPipe, CommonModule, NgFor} from "@angular/common";
 
@@ -46,7 +47,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { PostsComponent } from './posts/posts.component';
+import { PostComponent } from './post/post.component';
+import { LoginComponent } from './login/login.component';
+import { MarketplaceComponent } from './marketplace/marketplace.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 let MatLabelModule;
@@ -92,7 +96,10 @@ const materialModules = [
     HomeComponent,
     NavbarComponent,
     FiltersComponent,
-    PostsComponent,
+    PostComponent,
+    LoginComponent,
+    MarketplaceComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,6 +114,7 @@ const materialModules = [
     NgFor,
     AsyncPipe,
     CommonModule,
+    CarouselModule,
     ...materialModules
   ],
 

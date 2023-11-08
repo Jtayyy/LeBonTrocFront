@@ -1,6 +1,9 @@
-
-<div class="carousel container">
-  <div *ngFor="let post of posts">
-    <posts [receivedObject]="post" class="col-4"></posts>
+<navbar style="position: sticky; top: 0; z-index: 110"></navbar>
+<div style="display: flex; flex-direction: column; background-color: antiquewhite">
+  <div class="column" style="display: flex; width: 100vw">
+    <filters class="col-3"></filters>
+    <div class="col-9" style="display: flex; justify-content: center">
+      <marketplace></marketplace>
+    </div>
   </div>
 </div>

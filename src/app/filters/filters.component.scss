@@ -1,32 +1,15 @@
 .filters{
   height: 100%;
   bottom: 0px;
-  box-shadow: 0 0 1em black;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .div-filters{
   padding: 20px;
-}
-
-
-.prices{
-  width:100%;
-  display:flex;
-  justify-content: space-evenly;
-}
-.price-input {
-  width: 80px;
-  text-align: right;
-}
-
-input.price-input::-webkit-outer-spin-button,
-input.price-input::-webkit-inner-spin-button {
-  display: none;
-}
-
-input.price-input {
-  -moz-appearance: textfield;
+  max-width: 300px;
 }
 
 .color-circle {

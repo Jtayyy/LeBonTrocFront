@@ -1,0 +1,28 @@
+<div class="login">
+  <div class="login-side">
+    <mat-card class="login-card">
+      <mat-card-header style="margin-bottom:20px">
+        <mat-card-title style="font-size: x-large" >Content de vous revoir !</mat-card-title>
+        <mat-icon></mat-icon>
+      </mat-card-header>
+      <div class="input">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="pat@example.com" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input">
+        <mat-form-field appearance="outline">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput placeholder="***********" [formControl]="password" required>
+          <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <mat-card-actions>
+        <button mat-raised-button style="background-color: #D2AB99" routerLink="/home">Se connecter</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+</div>

@@ -8,9 +8,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
-
-$my-primary: mat.define-palette(mat.$green-palette, 900);
-$my-accent: mat.define-palette(mat.$green-palette, A400, A100, A200);
+$my-primary: mat.define-palette(mat.$teal-palette, 800);
+$my-accent: mat.define-palette(mat.$brown-palette, 800, 500, 300);
 $my-warn: mat.define-palette(mat.$red-palette);
 
 $my-theme: mat.define-light-theme((
