@@ -1,4 +1,38 @@
-<navbar style="position: sticky; top: 0; z-index: 110"></navbar>
+<div class="profile-page">
+  <div class="profile-infos container">
+    <div class="col-4" style="display: flex; justify-content: center">
+      <div class="avatar-container" >
+        <div class="image-container" *ngIf="file; else placeholder"
+             [ngClass]="{'box-shadow-avatar': !!file}"
+             [ngStyle]="{backgroundImage: 'url(' + file + ')'}">
+        </div>
 
+        <ng-template #placeholder>
+          <div class="image-container avatar-placeholder">
+          </div>
+        </ng-template>
 
-<p>profile works!</p>
+        <label for="avatar-input-file">
+          <div class="icon-wrapper">
+            <input type="file" id="avatar-input-file" accept="image/*" (change)="onFileChange($event)" />
+            <mat-icon class="icon" fontIcon="edit"></mat-icon>
+          </div>
+        </label>
+
+      </div>
+    </div>
+    <div class="col-8">
+      <h2 >
+        {{currentUser.username}}
+      </h2>
+      <i>
+        J'ai trop d'objets qui me sont inutiles chez moi, n'hésitez pas à me contacter pour un échange ! ;)
+      </i>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+
+  </div>
+
+</div>

@@ -51,6 +51,7 @@ import { PostComponent } from './post/post.component';
 import { LoginComponent } from './login/login.component';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
 import { ProfileComponent } from './profile/profile.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 let MatLabelModule;
@@ -106,6 +107,7 @@ const materialModules = [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,

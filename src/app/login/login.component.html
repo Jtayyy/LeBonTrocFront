@@ -5,23 +5,23 @@
         <mat-card-title style="font-size: x-large" >Content de vous revoir !</mat-card-title>
         <mat-icon></mat-icon>
       </mat-card-header>
-      <div class="input">
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="pat@example.com" [formControl]="email" required>
-          <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
-        </mat-form-field>
+      <div class="login-form">
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" formControlName="loginForm.controls['email']" class="form-control" [ngClass]="{ 'is-invalid': submitted && loginForm.controls['email'].errors }" />
+            <mat-error *ngIf="loginForm.controls['email'].invalid">{{getErrorMessageEmail()}}</mat-error>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" formControlName="loginForm.controls['password']" class="form-control" [ngClass]="{ 'is-invalid': submitted && loginForm.controls['password'].errors }" />
+            <mat-error *ngIf="loginForm.controls['password'].invalid">{{getErrorMessagePassword()}}</mat-error>
+          </div>
+          <mat-card-actions>
+            <button mat-raised-button style="background-color: #D2AB99" (click)="onLoginSubmit()" [routerLink]="['/home']">Se connecter</button>
+          </mat-card-actions>
+        </form>
       </div>
-      <div class="input">
-        <mat-form-field appearance="outline">
-          <mat-label>Mot de passe</mat-label>
-          <input matInput placeholder="***********" [formControl]="password" required>
-          <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
-        </mat-form-field>
-      </div>
-      <mat-card-actions>
-        <button mat-raised-button style="background-color: #D2AB99" routerLink="/home">Se connecter</button>
-      </mat-card-actions>
     </mat-card>
   </div>
 
