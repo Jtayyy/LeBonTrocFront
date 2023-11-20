@@ -7,7 +7,7 @@ export class Post {
   user:string;
   publication: string;
   description: string;
-  adresse: string;
+  address: string;
 
   constructor(object: string, title: string, user: string, publication: string, description: string, adresse: string) {
     this.object = object;
@@ -15,7 +15,7 @@ export class Post {
     this.user = user;
     this.publication = publication;
     this.description = description;
-    this.adresse = adresse;
+    this.address = adresse;
   }
 }
 

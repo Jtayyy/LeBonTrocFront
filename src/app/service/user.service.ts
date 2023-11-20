@@ -46,4 +46,9 @@ export class UserService {
     return this.http.get<Object[]>(url);
   }
 
+  public getFavoritesByUserId(id: number): Observable<Object[]> {
+    const url = `${this.usersUrl}/${id}/favorites`;
+    return this.http.get<Object[]>(url);
+  }
+
 }
