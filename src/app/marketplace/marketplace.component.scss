@@ -1,5 +1,21 @@
 .carousel{
+  width: 700px;
+  margin: 10px;
+}
+
+
+.carousel-button-left{
   display: flex;
-  padding: 20px;
-  justify-content: space-around;
+  :hover{
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.67), rgba(255, 255, 255, 0));
+
+  }
+}
+
+.carousel-button-right{
+  display: flex;
+  :hover{
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.67), rgba(255, 255, 255, 0));
+  }
+
 }

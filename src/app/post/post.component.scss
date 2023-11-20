@@ -2,13 +2,26 @@
   margin: 0;
   padding: 0;
   display: grid;
-}
-
-.card{
-  width:700px;
-  margin: 10px;
+  width: 700px;
+  height: 100%;
+  overflow: auto;
 }
 
 .description{
   display: flex;
+}
+
+.post-description{
+  padding: 10px;
+}
+
+.post-boutons{
+  position: sticky;
+  bottom: 0;
+  z-index: 110;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: rgba(0, 63, 55, 0.76);
+
 }

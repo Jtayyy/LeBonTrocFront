@@ -31,8 +31,15 @@
     </div>
   </div>
   <mat-divider></mat-divider>
-  <div>
-
+  <div class="profile-items">
+    <mat-tab-group style="width:80%">
+      <mat-tab label="Posts">
+        <div *ngFor="let post of posts">
+          <post [receivedObject]="post"></post>
+        </div>
+      </mat-tab>
+      <mat-tab label="Likes"> Content 2 </mat-tab>
+    </mat-tab-group>
   </div>
 
 </div>

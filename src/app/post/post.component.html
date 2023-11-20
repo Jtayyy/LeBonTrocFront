@@ -1,11 +1,19 @@
 <div class="element">
   <div class="card">
     <mat-card>
+      <img class="col" mat-card-image src="https://assurance.carrefour.fr/var/site/storage/images/2/0/9/2/1022902-166-fre-FR/PC%20casse%20fond-compressed.jpg" alt="Photo of a Shiba Inu">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{receivedObject.title}}</mat-card-title>
         <mat-card-subtitle>{{receivedObject.user}}</mat-card-subtitle>
       </mat-card-header>
+      <mat-card-content class="post-description">
+        <p style="text-justify: inter-word">
+          {{receivedObject.description}}
+          <br>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+        </p>
+      </mat-card-content>
       <mat-grid-list cols="3" rowHeight="2:1">
         <mat-grid-tile [colspan]="3" [rowspan]="1">
           <img class="col" mat-card-image src="https://assurance.carrefour.fr/var/site/storage/images/2/0/9/2/1022902-166-fre-FR/PC%20casse%20fond-compressed.jpg" alt="Photo of a Shiba Inu">
@@ -20,19 +28,11 @@
           <img class="col" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         </mat-grid-tile>
       </mat-grid-list>
-
-      <mat-card-content>
-        <p>
-          {{receivedObject.description}}
-          <br>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-mini-fab class="btn-icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-      </mat-card-actions>
     </mat-card>
+    <div class="post-boutons">
+      <button mat-mini-fab class="btn-icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </div>
   </div>
 </div>
