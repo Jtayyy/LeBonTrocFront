@@ -1,21 +1,31 @@
 <div id="carousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
-    <div *ngFor="let post of posts">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <div class="carousel-content">
+    <div *ngFor="let post of posts; let i = index" >
+      <div *ngIf="i === 0" class="carousel-item active" data-bs-interval="10000">
+        <div class="carousel-content" style="display:flex; justify-content: center">
+          <post [receivedObject]="post"></post>
+        </div>
+      </div>
+      <div *ngIf="i !== 0" class="carousel-item" data-bs-interval="10000">
+        <div class="carousel-content" style="display:flex; justify-content: center">
           <post [receivedObject]="post"></post>
         </div>
       </div>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+  <div class="carousel-button-left">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+  </div>
+  <div class="carousel-button-right">
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
 </div>
 
 
