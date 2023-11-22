@@ -44,4 +44,8 @@ export class ProfileComponent {
       input.value = "";
     }
   }
+
+  logout() {
+    this.userService.logout();
+  }
 }

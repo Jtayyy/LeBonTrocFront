@@ -48,6 +48,7 @@ export class UserService {
           localStorage.setItem('user', JSON.stringify(user));
           this.userSubject.next(user);
           console.log("user", user)
+          this.router.navigate(['']);
         }),
     catchError(error => {
       console.error('Erreur lors de la connexion :', error);
