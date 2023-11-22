@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {AuthService} from "../auth.service";
-import {User} from "../app.component";
 import {Post} from "../post/post.component";
+import {User} from "../model/user";
+import {UserService} from "../service/user.service";
 
 @Component({
   selector: 'profile',
@@ -10,10 +10,10 @@ import {Post} from "../post/post.component";
 })
 export class ProfileComponent {
   file: string = '';
-  currentUser: User;
+  currentUser: User|null;
 
-  constructor(private auth: AuthService) {
-    this.currentUser = this.auth.userValue;
+  constructor(private userService: UserService) {
+    this.currentUser = this.userService.userValue;
   }
 
   post_sweat = new Post("sweat", "sweat M neuf", "Aurélien","12/09/2023", "Pull de qualité supérieure mashallah", "43 rue Camille Desmoulin, Cachan" )

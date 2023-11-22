@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
+import {UserService} from "../service/user.service";
 
 @Component({
   selector: 'login',
@@ -13,8 +13,8 @@ export class LoginComponent{
   loginForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private auth: AuthService, private router: Router) {
-    if (this.auth.userValue) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
+    if (this.userService.userValue) {
       this.router.navigate(['/']);
     }
     this.loginForm = this.formBuilder.group({
@@ -31,8 +31,10 @@ export class LoginComponent{
     if (this.loginForm.invalid) {
       return;
     }
-    this.auth.login(this.f["email"].value, this.f["password"].value);
-    console.log("Service email = login email");
+    console.log("Service email = login email", this.f["email"].value);
+    this.userService.login(this.f["email"].value, this.f["password"].value).subscribe(
+
+    );
   }
 
   getErrorMessageEmail() {

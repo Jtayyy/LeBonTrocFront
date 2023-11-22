@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {BehaviorSubject, catchError, Observable, throwError} from "rxjs";
 import {User} from "../model/user";
+import {map} from "rxjs/operators";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +11,14 @@ import {User} from "../model/user";
 export class UserService {
 
   private usersUrl: string;
+  private userSubject: BehaviorSubject<User|null>;
+  public user: Observable<User|null>;
 
-  constructor(private http: HttpClient) { this.usersUrl = 'http://localhost:8080/users'; }
+  constructor(private http: HttpClient, private router: Router) {
+    this.usersUrl = 'http://localhost:8080/users';
+    this.userSubject = new BehaviorSubject<User|null>(JSON.parse(localStorage.getItem('user')!));
+    this.user = this.userSubject.asObservable();
+  }
 
   public findAll(): Observable<User[]> {
     return this.http.get<User[]>(this.usersUrl);
@@ -26,9 +34,32 @@ export class UserService {
     return this.http.post<void>(url, userDto);
   }
 
-  public login(userDto: any): Observable<void> {
+  public get userValue(): User|null {
+    return this.userSubject.value;
+  }
+
+  public login(email: string, password: string) {
     const url = `${this.usersUrl}/login`;
-    return this.http.post<void>(url, userDto);
+    const credentials = { email, password };
+    return this.http.post<User>(url, credentials)
+      .pipe(map(user => {
+          console.log("Après la requête HTTP avec succès. Utilisateur reçu :", user);
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('user', JSON.stringify(user));
+          this.userSubject.next(user);
+          console.log("user", user)
+        }),
+    catchError(error => {
+      console.error('Erreur lors de la connexion :', error);
+      return throwError('Échec de la connexion. Veuillez vérifier vos informations d\'identification.');
+    }));
+  }
+
+  logout() {
+    // remove user from local storage and set current user to null
+    localStorage.removeItem('user');
+    this.userSubject.next(null);
+    this.router.navigate(['/login']);
   }
 
   public update(id: number, userDto: any): Observable<void> {

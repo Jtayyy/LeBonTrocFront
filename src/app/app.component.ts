@@ -1,16 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {AuthService} from "./auth.service";
-
-
-export class User{
-  username: string|null;
-  password: string|null;
-  constructor(username: string|null, password: string|null) {
-    this.username = username;
-    this.password = password;
-  }
-}
+import {User} from "./model/user";
+import {UserService} from "./service/user.service";
 
 @Component({
   selector: 'app-root',
@@ -24,10 +15,10 @@ export class AppComponent {
   current_user : User | null = null;
 
   constructor(private router: Router,
-              private authenticationService: AuthService
+              private userService: UserService
   ) {
-    this.authenticationService.user.subscribe(x => this.current_user = x);
-    console.log("Current User : ", this.current_user?.username)
+    this.userService.user.subscribe(x => this.current_user = x);
+    console.log("Current User : ", this.current_user?.pseudo)
   }
 
 }

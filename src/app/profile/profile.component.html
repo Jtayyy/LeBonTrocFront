@@ -22,9 +22,12 @@
       </div>
     </div>
     <div class="col-8">
-      <h2 >
-        {{currentUser.username}}
+      <h2 *ngIf="currentUser?.pseudo; else elseBlock">
+        {{currentUser?.pseudo}}
       </h2>
+      <ng-template #elseBlock>
+        <p>Aucun pseudo disponible</p>
+      </ng-template>
       <i>
         J'ai trop d'objets qui me sont inutiles chez moi, n'hésitez pas à me contacter pour un échange ! ;)
       </i>
