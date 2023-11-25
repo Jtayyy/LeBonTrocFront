@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FiltersComponent } from './filters/filters.component';
+import { HomeComponent } from './pages/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FiltersComponent } from './components/filters/filters.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -47,11 +47,13 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { PostComponent } from './post/post.component';
-import { LoginComponent } from './login/login.component';
-import { MarketplaceComponent } from './marketplace/marketplace.component';
-import { ProfileComponent } from './profile/profile.component';
+import { PostComponent } from './components/post/post.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MarketplaceComponent } from './components/marketplace/marketplace.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import {HttpClientModule} from "@angular/common/http";
+import { SignupComponent } from './components/signup/signup.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 let MatLabelModule;
@@ -89,7 +91,8 @@ const materialModules = [
   MatGridListModule,
   MatRadioModule,
   MatDatepickerModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatDialogModule
 ];
 @NgModule({
   declarations: [
@@ -101,6 +104,7 @@ const materialModules = [
     LoginComponent,
     MarketplaceComponent,
     ProfileComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import {BehaviorSubject, catchError, Observable, throwError} from "rxjs";
 import {User} from "../model/user";
 import {map} from "rxjs/operators";
 import {Router} from "@angular/router";
+import {UserLoginDto} from "../model/user.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,7 @@ export class UserService {
     return this.http.get<User>(url);
   }
 
-  public register(userDto: any): Observable<void> {
+  public register(userDto: UserLoginDto): Observable<void> {
     const url = `${this.usersUrl}/register`;
     return this.http.post<void>(url, userDto);
   }
@@ -38,10 +39,9 @@ export class UserService {
     return this.userSubject.value;
   }
 
-  public login(email: string, password: string) {
+  public login(userLoginDto : UserLoginDto) {
     const url = `${this.usersUrl}/login`;
-    const credentials = { email, password };
-    return this.http.post<User>(url, credentials)
+    return this.http.post<User>(url, userLoginDto)
       .pipe(map(user => {
           console.log("Après la requête HTTP avec succès. Utilisateur reçu :", user);
           // store user details and jwt token in local storage to keep user logged in between page refreshes

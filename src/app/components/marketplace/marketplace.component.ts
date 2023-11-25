@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {Post} from "../model/post";
-import {PostService} from "../service/post.service";
+import {Post} from "../../model/post";
+import {PostService} from "../../service/post.service";
 
 @Component({
   selector: 'marketplace',

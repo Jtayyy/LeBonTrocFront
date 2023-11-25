@@ -28,6 +28,10 @@
       <button mat-mini-fab class="btn-icon" style="background-color: antiquewhite; color: cornflowerblue" aria-label="Example icon-button with share icon" [routerLink]="['/profile']">
         <mat-icon>face</mat-icon>
       </button>
+      <button mat-mini-fab class="btn-icon" style="background-color: antiquewhite; color: cornflowerblue" aria-label="Example icon-button with share icon" (click)="logoutClick()">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+
     </div>
 
     <span class="example-spacer"></span>

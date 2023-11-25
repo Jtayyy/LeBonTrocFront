@@ -1,5 +1,5 @@
 <div class="page">
-  <navbar style="position: sticky; top: 0; z-index: 110"></navbar>
+  <navbar *ngIf="current_user" style="position: sticky; top: 0; z-index: 110"></navbar>
   <router-outlet></router-outlet>
 </div>
 

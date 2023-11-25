@@ -6,6 +6,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {AsyncPipe, NgFor} from "@angular/common";
+import {UserService} from "../../service/user.service";
 
 
 @Component({
@@ -18,6 +19,9 @@ export class NavbarComponent implements OnInit {
   options: string[] = ['Mode', 'Vehicules', 'Maison et jardin', 'Electronique', 'Loisirs', 'Autres'];
   filteredOptions: Observable<string[]> = new Observable<string[]>();
 
+  constructor(private userService: UserService) {
+  }
+
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -29,5 +33,9 @@ export class NavbarComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  logoutClick(){
+    this.userService.logout();
   }
 }

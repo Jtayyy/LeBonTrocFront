@@ -3,7 +3,7 @@
   height: 100vh;
   display:flex;
   justify-content: right;
-  background-image: url("../../assets/troc.jpg") ;
+  background-image: url("../../../assets/troc.jpg") ;
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 75%;
@@ -32,4 +32,15 @@
 .login-form{
   margin-left: 8px;
   margin-top: 10px;
+}
+
+.login-link{
+  color:blue;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  color: darkblue;
+  text-decoration: underline;
 }

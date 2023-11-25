@@ -1,7 +1,10 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {UserService} from "../service/user.service";
+import {UserService} from "../../service/user.service";
+import {MatDialog} from "@angular/material/dialog";
+import {SignupComponent} from "../../components/signup/signup.component";
+import {UserLoginDto} from "../../model/user.dto";
 
 @Component({
   selector: 'login',
@@ -13,7 +16,11 @@ export class LoginComponent{
   loginForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
+  openDialog() {
+    this.dialog.open(SignupComponent);
+  }
+
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router, public dialog: MatDialog) {
     if (this.userService.userValue) {
       this.router.navigate(['/']);
     }
@@ -32,9 +39,9 @@ export class LoginComponent{
       return;
     }
     console.log("Service email = login email", this.f["email"].value);
-    this.userService.login(this.f["email"].value, this.f["password"].value).subscribe(
-
-    );
+    const user : UserLoginDto = { email : this.f["email"].value, password: this.f["password"].value}
+    this.userService.login(user).subscribe();
+    this.router.navigate(['/']);
   }
 
   getErrorMessageEmail() {

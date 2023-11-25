@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {Post} from "../post/post.component";
-import {User} from "../model/user";
-import {UserService} from "../service/user.service";
+import {Post} from "../../components/post/post.component";
+import {User} from "../../model/user";
+import {UserService} from "../../service/user.service";
 
 @Component({
   selector: 'profile',

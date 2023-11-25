@@ -2,20 +2,18 @@ import {Object} from "./object";
 import {Post} from "./post";
 
 export class User {
-  id: number;
   firstname: string;
   lastname: string;
-  pseudo:string;
+  pseudo: string;
   password: string;
   email: string;
-  birthdate: void ;
+  birthdate: Date;
   address: string;
   admin: boolean;
   objects: Object[];
   favorite_posts: Post[];
 
-  constructor(id: number, firstname: string, lastname: string, pseudo: string, password: string, email: string, birthdate: void, address: string, admin: boolean, objects: Object[], favorite_posts: Post[]) {
-    this.id = id;
+  constructor(firstname: string, lastname: string, pseudo: string, password: string, email: string, birthdate: Date, address: string, admin: boolean, objects: Object[], favorite_posts: Post[]) {
     this.firstname = firstname;
     this.lastname = lastname;
     this.pseudo = pseudo;
@@ -28,3 +26,5 @@ export class User {
     this.favorite_posts = favorite_posts;
   }
 }
+
+

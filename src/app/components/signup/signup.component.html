@@ -1,0 +1,41 @@
+<div class="signup-dialog">
+  <form name="registerForm" (submit)="signUp(user)">
+    <h1 mat-dialog-title>Bonjour, enchanté, je m'appelle Bob. Et toi ?</h1>
+    <div mat-dialog-content>
+      <div class="forms">
+        <div>Salut ! Je m'appelle&nbsp;</div>
+        <input type="text" class="form-control form-control-sm inputs" id="prenom" placeholder="prénom" [(ngModel)]="user.firstname" [ngModelOptions]="{standalone: true}">
+        &nbsp;
+        <input type="text" class="form-control form-control-sm inputs" id="nom" placeholder="nom"  [(ngModel)]="user.lastname" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="forms">
+        <div>Mais tu peux m'appeler</div>
+        <input type="text" class="form-control form-control-sm inputs" id="pseudo" placeholder="pseudo"  [(ngModel)]="user.pseudo" [ngModelOptions]="{standalone: true}">
+        <div>:). </div>
+      </div>
+      <div class="forms">
+        <div>Je suis né le</div>
+        <input type="date" class="form-control form-control-sm inputs" id="date de naissance" placeholder="" [(ngModel)]="user.birthdate" [ngModelOptions]="{standalone: true}">
+        <div>et j'habite au</div>
+        <input type="text" class="form-control form-control-sm inputs" id="adresse" placeholder="adresse"  [(ngModel)]="user.address" [ngModelOptions]="{standalone: true}">
+      .
+      </div>
+      <br/>
+      <br/>
+      <div class="forms">
+        <div>PS : Tu peux me contacter sur</div>
+        <input type="email" class="form-control form-control-sm inputs" id="mail" placeholder="mail"  [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="forms">
+        <div>PSS : Mon mot de passe est </div>
+        <input type="password" class="form-control form-control-sm inputs" id="password" placeholder="*************"  [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
+      </div>
+
+    </div>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" type="submit" [mat-dialog-close]="true">Créer un compte</button>
+      <button mat-button mat-dialog-close>Close</button>
+    </div>
+  </form>
+</div>
+
