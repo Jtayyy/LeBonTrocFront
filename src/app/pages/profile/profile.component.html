@@ -36,21 +36,20 @@
         {{currentUser?.email}}
       </i>
     </div>
-    <button mat-raised-button color="primary" (click)="openNewPostForm()" style="width: 300px; height: 100px;">Ajouter un post</button>
   </div>
   <mat-divider></mat-divider>
   <div class="profile-items">
     <mat-tab-group style="width:80%">
       <mat-tab label="Mes objets">
-        <div *ngFor="let object of userObjects">
-          <mat-card class="example-card objects-cards">
+        <div *ngFor="let item of userItems">
+          <mat-card class="example-card items-cards">
             <mat-card-header>
-              <mat-card-title>{{object.name}}</mat-card-title>
+              <mat-card-title>{{item.name}}</mat-card-title>
             </mat-card-header>
-            <img mat-card-image src="{{object.image}}" alt="Photo of a Shiba Inu">
+            <img mat-card-image src="{{item.image}}" alt="Photo of a Shiba Inu">
             <mat-card-content>
               <p>
-                {{object.description}}
+                {{item.description}}
               </p>
             </mat-card-content>
           </mat-card>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {User} from "../../model/user";
 import {UserService} from "../../service/user.service";
-import {Object} from "../../model/object";
+import {Item} from "../../model/item";
 import {Post} from "../../model/post";
 import {NewPostComponent} from "../../components/new-post/new-post.component";
 import {MatDialog} from "@angular/material/dialog";
@@ -14,7 +14,7 @@ import {MatDialog} from "@angular/material/dialog";
 export class ProfileComponent {
   file: string = '';
   currentUser: User|null;
-  userObjects:Object[] = [];
+  userItems:Item[] = [];
   userPosts: Post[] = [];
   favoritesPosts:Post[] = [];
   likedPosts: Post[] = [];
@@ -22,9 +22,9 @@ export class ProfileComponent {
   constructor(private userService: UserService, public dialog: MatDialog) {
     this.currentUser = this.userService.userValue;
     if(this.currentUser){
-      this.userService.getObjectsOfUser(this.currentUser.id).subscribe(
-        objects => {
-          this.userObjects = objects;
+      this.userService.getItemsOfUser(this.currentUser.id).subscribe(
+        items => {
+          this.userItems = items;
         });
       this.userService.getFavoritesByUserId(this.currentUser.id).subscribe(
         posts => {
@@ -61,7 +61,4 @@ export class ProfileComponent {
     }
   }
 
-  openNewPostForm(){
-    this.dialog.open(NewPostComponent);
-  }
 }

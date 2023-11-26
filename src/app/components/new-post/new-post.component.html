@@ -4,10 +4,10 @@
     <div mat-dialog-content>
       <div class="forms">
         <div>Choisis un objet :</div>
-        <select class="form-control form-control-sm inputs" formControlName="object_id" id="object_id" [ngClass]="{ 'is-invalid': submitted && CreatePostForm.controls['object_id'].errors }">
-          <option *ngFor="let object of userObjects" [value]="object.id">{{ object.name }}</option>
+        <select class="form-control form-control-sm inputs" formControlName="item_id" id="item_id" [ngClass]="{ 'is-invalid': submitted && CreatePostForm.controls['item_id'].errors }">
+          <option *ngFor="let item of userItems" [value]="item.id">{{ item.name }}</option>
         </select>
-        <div *ngIf="showAddObjectMessage" class="add-object-message">Vous devez d'abord ajouter un objet.</div>
+        <div *ngIf="showAddItemMessage" class="add-item-message">Vous devez d'abord ajouter un objet.</div>
       </div>
       <div class="forms">
         <div>Titre :</div>
@@ -22,7 +22,7 @@
         <input type="text" class="form-control form-control-sm inputs" formControlName="address" id="address" placeholder="Adresse" [ngClass]="{ 'is-invalid': submitted && CreatePostForm.controls['address'].errors }">
       </div>
       <div class="row">
-        <mat-error *ngIf="submitted && CreatePostForm.controls['object_id'].invalid">Sélectionnez un objet.</mat-error>
+        <mat-error *ngIf="submitted && CreatePostForm.controls['item_id'].invalid">Sélectionnez un objet.</mat-error>
         <mat-error *ngIf="submitted && CreatePostForm.controls['title'].invalid">Le titre est requis.</mat-error>
         <mat-error *ngIf="submitted && CreatePostForm.controls['description'].invalid">La description est requise.</mat-error>
         <mat-error *ngIf="submitted && CreatePostForm.controls['address'].invalid">L'adresse est requise.</mat-error>

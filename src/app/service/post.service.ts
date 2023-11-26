@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Post} from "../model/post";
+import {Item} from "../model/item";
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,11 @@ export class PostService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  getPostsByObjectType(type: String): Observable<Post[]> {
+  getPostsByItemType(type: String): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.apiUrl}/type/${type}`);
+  }
+
+  getItemByPostId(id: number): Observable<Item> {
+    return this.http.get<Item>(`${this.apiUrl}/${id}/item`);
   }
 }

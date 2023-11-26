@@ -3,7 +3,7 @@
     <div class="col-md-3" style="display:flex; justify-content: center">
       <span>Le Bon Troc</span>
     </div>
-    <div class="col-md-6" >
+    <div class="col-md-5" >
       <form class="searchbar">
         <mat-form-field style="width: 100%; flex-direction: row">
           <mat-label>Search...</mat-label>
@@ -21,17 +21,20 @@
         </mat-form-field>
       </form>
     </div>
-    <div class="col-md-3 btn-right">
-      <button mat-mini-fab class="btn-icon" style="background-color: antiquewhite; color: palevioletred" aria-label="Example icon-button with heart icon" [routerLink]="['/login']">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button mat-mini-fab class="btn-icon" style="background-color: antiquewhite; color: cornflowerblue" aria-label="Example icon-button with share icon" [routerLink]="['/profile']">
-        <mat-icon>face</mat-icon>
-      </button>
-      <button mat-mini-fab class="btn-icon" style="background-color: antiquewhite; color: cornflowerblue" aria-label="Example icon-button with share icon" (click)="logoutClick()">
-        <mat-icon>exit_to_app</mat-icon>
-      </button>
 
+    <div class="col-md-4" style="display: flex; align-items: center; justify-content: space-between">
+      <button mat-raised-button color="" (click)="openNewPostForm()">Ajouter un post</button>
+      <div>
+        <button mat-mini-fab class="btn-icon" style="background-color: antiquewhite; color: palevioletred" aria-label="Example icon-button with heart icon" [routerLink]="['/login']">
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-mini-fab class="btn-icon" style="background-color: antiquewhite; color: cornflowerblue" aria-label="Example icon-button with share icon" [routerLink]="['/profile']">
+          <mat-icon>face</mat-icon>
+        </button>
+        <button mat-mini-fab class="btn-icon" style="background-color: antiquewhite; color: black" aria-label="Example icon-button with share icon" (click)="logoutClick()">
+          <mat-icon>exit_to_app</mat-icon>
+        </button>
+      </div>
     </div>
 
     <span class="example-spacer"></span>

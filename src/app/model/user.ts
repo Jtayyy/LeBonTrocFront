@@ -1,4 +1,4 @@
-import {Object} from "./object";
+import {Item} from "./item";
 import {Post} from "./post";
 
 export class User {
@@ -11,10 +11,10 @@ export class User {
   birthdate: Date;
   address: string;
   admin: boolean;
-  objects: Object[];
+  items: Item[];
   favorite_posts: Post[];
 
-  constructor(id: number, firstname: string, lastname: string, pseudo: string, password: string, email: string, birthdate: Date, address: string, admin: boolean, objects: Object[], favorite_posts: Post[]) {
+  constructor(id: number, firstname: string, lastname: string, pseudo: string, password: string, email: string, birthdate: Date, address: string, admin: boolean, items: Item[], favorite_posts: Post[]) {
     this.id = id;
     this.firstname = firstname;
     this.lastname = lastname;
@@ -24,7 +24,7 @@ export class User {
     this.birthdate = birthdate;
     this.address = address;
     this.admin = admin;
-    this.objects = objects;
+    this.items = items;
     this.favorite_posts = favorite_posts;
   }
 }

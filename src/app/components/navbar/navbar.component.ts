@@ -10,6 +10,8 @@ import {UserService} from "../../service/user.service";
 import {PostService} from "../../service/post.service";
 import {NavbarService} from "../../service/navbar.service";
 import {Router} from "@angular/router";
+import {NewPostComponent} from "../new-post/new-post.component";
+import {MatDialog} from "@angular/material/dialog";
 
 
 @Component({
@@ -22,7 +24,7 @@ export class NavbarComponent implements OnInit {
   options: string[] = ['Tout', 'Livre', 'Sport et Loisirs', 'Accessoires', 'Électronique', 'Jeux vidéo', 'Instruments de musique', 'Accessoires de mode', 'Mobilier', 'Informatique', 'Appareils électroménagers', 'Cuisine', 'Transport'];
   filteredOptions: Observable<string[]> = new Observable<string[]>();
 
-  constructor(private router: Router,private userService: UserService, private navbarService: NavbarService) {
+  constructor(private router: Router,private userService: UserService, private navbarService: NavbarService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -42,6 +44,10 @@ export class NavbarComponent implements OnInit {
     console.log("type", type);
     this.navbarService.updateVariable(type);
     this.router.navigate(['']);
+  }
+
+  openNewPostForm(){
+    this.dialog.open(NewPostComponent);
   }
 
   logoutClick(){

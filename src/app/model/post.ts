@@ -1,16 +1,16 @@
-import {Object} from "./object";
+import {Item} from "./item";
 export class Post {
 
   id: number;
-  object: Object;
+  item: Item;
   title: string;
   publication: string;
   description: string;
   address: string;
 
-  constructor(id: number, object: Object, title: string, publication: string, description: string, address: string) {
+  constructor(id: number, item: Item, title: string, publication: string, description: string, address: string) {
     this.id = id;
-    this.object = object;
+    this.item = item;
     this.title = title;
     this.publication = publication;
     this.description = description;

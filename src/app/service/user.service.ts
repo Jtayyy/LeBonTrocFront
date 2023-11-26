@@ -5,7 +5,7 @@ import {User} from "../model/user";
 import {map} from "rxjs/operators";
 import {Router} from "@angular/router";
 import {UserLoginDto} from "../model/user.dto";
-import {Object} from "../model/object";
+import {Item} from "../model/item";
 import {Post} from "../model/post";
 
 @Injectable({
@@ -75,9 +75,9 @@ export class UserService {
     return this.http.delete<void>(url);
   }
 
-  public getObjectsOfUser(id: number): Observable<Object[]> {
+  public getItemsOfUser(id: number): Observable<Item[]> {
     const url = `${this.usersUrl}/${id}/objects`;
-    return this.http.get<Object[]>(url);
+    return this.http.get<Item[]>(url);
   }
 
   public getPostsOfUser(id: number): Observable<Post[]> {

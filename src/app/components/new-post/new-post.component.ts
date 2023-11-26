@@ -3,11 +3,11 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {MatDialogRef} from "@angular/material/dialog";
 import {PostService} from "../../service/post.service";
-import {ObjectService} from "../../service/object.service";
+import {ItemService} from "../../service/item.service";
 import {UserService} from "../../service/user.service";
 import {User} from "../../model/user";
 import {Post} from "../../model/post";
-import {Object} from "../../model/object";
+import {Item} from "../../model/item";
 
 @Component({
   selector: 'new-post',
@@ -18,20 +18,20 @@ export class NewPostComponent {
 
   CreatePostForm: FormGroup;
   submitted = false;
-  userObjects: Object[] = [];
+  userItems: Item[] = [];
   currentUser: User|null;
 
-  constructor(private postService: PostService, private userService: UserService, private objectService: ObjectService, private router: Router, private formBuilder: FormBuilder, private dialogRef: MatDialogRef<NewPostComponent>) {
+  constructor(private postService: PostService, private userService: UserService, private itemService: ItemService, private router: Router, private formBuilder: FormBuilder, private dialogRef: MatDialogRef<NewPostComponent>) {
       this.currentUser = this.userService.userValue;
       if (this.currentUser){
-          this.userService.getObjectsOfUser(this.currentUser.id).subscribe(
-              objects => {
-                  this.userObjects = objects;
-                  this.showAddObjectMessage = this.userObjects.length === 0;
+          this.userService.getItemsOfUser(this.currentUser.id).subscribe(
+              items => {
+                  this.userItems = items;
+                  this.showAddItemMessage = this.userItems.length === 0;
               });
       }
       this.CreatePostForm = this.formBuilder.group({
-          object_id: ['', [Validators.required]],
+          item_id: ['', [Validators.required]],
           title: ['', Validators.required],
           description: ['', Validators.required],
           address: [this.currentUser?.address || '', Validators.required]
@@ -46,11 +46,11 @@ export class NewPostComponent {
             return;
         }
 
-        this.objectService.findById(this.f["object_id"].value).subscribe(
-            (object) => {
+        this.itemService.findById(this.f["item_id"].value).subscribe(
+            (item) => {
                 const postData: Post = {
                     id:0,
-                    object: object,
+                    item: item,
                     title: this.f["title"].value,
                     publication: new Date().toISOString(),
                     description: this.f["description"].value,
@@ -72,6 +72,6 @@ export class NewPostComponent {
             }
         );
     }
-    showAddObjectMessage: boolean = false;
+    showAddItemMessage: boolean = false;
 }
 

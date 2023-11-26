@@ -2,9 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Router} from "@angular/router";
 import {FavoriteService} from "../../service/favorite.service";
 import {Favorite} from "../../model/favorite";
-import {UserRegisterDto} from "../../model/user.dto";
 import {UserService} from "../../service/user.service";
-import {Observable} from "rxjs";
 export interface Tile {
   color: string;
   cols: number;

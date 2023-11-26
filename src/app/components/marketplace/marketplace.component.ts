@@ -35,7 +35,7 @@ export class MarketplaceComponent{
       );
     }
     else{
-      this.postService.getPostsByObjectType(this.searchType).subscribe(
+      this.postService.getPostsByItemType(this.searchType).subscribe(
         (posts) => {
           this.posts = posts;
         },

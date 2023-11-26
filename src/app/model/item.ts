@@ -1,7 +1,7 @@
 import {User} from "./user";
 import {Post} from "./post";
 
-export class Object {
+export class Item {
 
   id: number;
   user: User;
