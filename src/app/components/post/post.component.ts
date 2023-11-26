@@ -1,4 +1,9 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Router} from "@angular/router";
+import {FavoriteService} from "../../service/favorite.service";
+import {Favorite} from "../../model/favorite";
+import {UserRegisterDto} from "../../model/user.dto";
+import {UserService} from "../../service/user.service";
 
 
 export class Post {
@@ -36,19 +41,18 @@ export class PostComponent {
   @Input() receivedObject: any;
   @Output() childObject: EventEmitter<any> = new EventEmitter<any>();
 
-  sendObjectToParent() {
-    const responseObject = {
-      message: 'Objet reçu de l\'enfant',
-      data: this.receivedObject
-    };
-    this.childObject.emit(responseObject);
+  constructor(private favoriteService: FavoriteService, private router: Router, private user: UserService) {
   }
 
-  tiles: Tile[] = [
-    {text: 'One', cols: 3, rows: 1, color: 'antiquewhite'},
-    {text: 'Two', cols: 1, rows: 2, color: 'moccasin'},
-    {text: 'Three', cols: 1, rows: 1, color: '#D2AB99'},
-    {text: 'Four', cols: 2, rows: 1, color: 'sandybrown'},
-  ];
-
+  addFavorites(): void{
+    const favoritePost: Favorite = new Favorite(this.user.userValue,this.receivedObject);
+    this.favoriteService.addFavorite(favoritePost).subscribe(
+      (response) => {
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        console.error('Erreur lors de l\'inscription', error);
+      }
+    );
+  }
 }

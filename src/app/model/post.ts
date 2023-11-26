@@ -16,4 +16,5 @@ export class Post {
     this.description = description;
     this.address = address;
   }
+
 }

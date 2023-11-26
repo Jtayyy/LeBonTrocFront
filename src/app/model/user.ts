@@ -2,6 +2,7 @@ import {Object} from "./object";
 import {Post} from "./post";
 
 export class User {
+  id: number
   firstname: string;
   lastname: string;
   pseudo: string;
@@ -13,7 +14,8 @@ export class User {
   objects: Object[];
   favorite_posts: Post[];
 
-  constructor(firstname: string, lastname: string, pseudo: string, password: string, email: string, birthdate: Date, address: string, admin: boolean, objects: Object[], favorite_posts: Post[]) {
+  constructor(id: number, firstname: string, lastname: string, pseudo: string, password: string, email: string, birthdate: Date, address: string, admin: boolean, objects: Object[], favorite_posts: Post[]) {
+    this.id = id;
     this.firstname = firstname;
     this.lastname = lastname;
     this.pseudo = pseudo;

@@ -29,20 +29,37 @@
         <p>Aucun pseudo disponible</p>
       </ng-template>
       <i>
-        J'ai trop d'objets qui me sont inutiles chez moi, n'hésitez pas à me contacter pour un échange ! ;)
+        {{currentUser?.firstname}}
+        {{currentUser?.lastname}}
+      </i>
+      <i>
+        {{currentUser?.email}}
       </i>
     </div>
-    <button mat-raised-button color="primary" (click)="logout()">Logout</button>
   </div>
   <mat-divider></mat-divider>
   <div class="profile-items">
     <mat-tab-group style="width:80%">
       <mat-tab label="Posts">
-        <div *ngFor="let post of posts">
+        <div *ngFor="let object of userObjects">
+          <mat-card class="example-card objects-cards">
+            <mat-card-header>
+              <mat-card-title>{{object.name}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="{{object.image}}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                {{object.description}}
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-tab>
+      <mat-tab label="Likes">
+        <div class="list-favorites-posts" *ngFor="let post of favoritesPosts">
           <post [receivedObject]="post"></post>
         </div>
       </mat-tab>
-      <mat-tab label="Likes"> Content 2 </mat-tab>
     </mat-tab-group>
   </div>
 

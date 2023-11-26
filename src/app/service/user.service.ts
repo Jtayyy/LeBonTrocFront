@@ -5,6 +5,8 @@ import {User} from "../model/user";
 import {map} from "rxjs/operators";
 import {Router} from "@angular/router";
 import {UserLoginDto} from "../model/user.dto";
+import {Object} from "../model/object";
+import {Post} from "../model/post";
 
 @Injectable({
   providedIn: 'root'
@@ -78,9 +80,9 @@ export class UserService {
     return this.http.get<Object[]>(url);
   }
 
-  public getFavoritesByUserId(id: number): Observable<Object[]> {
+  public getFavoritesByUserId(id: number): Observable<Post[]> {
     const url = `${this.usersUrl}/${id}/favorites`;
-    return this.http.get<Object[]>(url);
+    return this.http.get<Post[]>(url);
   }
 
 }
