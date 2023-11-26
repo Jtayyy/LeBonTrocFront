@@ -1,13 +1,13 @@
 import {User} from "./user";
-import {Post} from "./post";
+import {favPost} from "./favPost";
 
 export class Favorite {
 
   user:User|null;
-  post:Post;
+  post:favPost;
 
 
-  constructor(user: User | null, post: Post) {
+  constructor(user: User | null, post: favPost) {
     this.user = user;
     this.post = post;
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Post} from "../../model/post";
+import {favPost} from "../../model/favPost";
 import {PostService} from "../../service/post.service";
 
 @Component({
@@ -9,7 +9,7 @@ import {PostService} from "../../service/post.service";
 })
 export class MarketplaceComponent {
 
-  posts: Post[] = [];
+  posts: favPost[] = [];
 
   constructor(private postService: PostService) {}
 

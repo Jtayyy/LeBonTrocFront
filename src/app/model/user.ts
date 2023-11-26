@@ -1,5 +1,5 @@
 import {Object} from "./object";
-import {Post} from "./post";
+import {favPost} from "./favPost";
 
 export class User {
   id: number
@@ -12,9 +12,9 @@ export class User {
   address: string;
   admin: boolean;
   objects: Object[];
-  favorite_posts: Post[];
+  favorite_posts: favPost[];
 
-  constructor(id: number, firstname: string, lastname: string, pseudo: string, password: string, email: string, birthdate: Date, address: string, admin: boolean, objects: Object[], favorite_posts: Post[]) {
+  constructor(id: number, firstname: string, lastname: string, pseudo: string, password: string, email: string, birthdate: Date, address: string, admin: boolean, objects: Object[], favorite_posts: favPost[]) {
     this.id = id;
     this.firstname = firstname;
     this.lastname = lastname;

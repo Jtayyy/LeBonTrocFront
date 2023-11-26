@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import {User} from "../../model/user";
 import {UserService} from "../../service/user.service";
 import {Object} from "../../model/object";
-import {Post} from "../../model/post";
+import {favPost} from "../../model/favPost";
 import {NewPostComponent} from "../../components/new-post/new-post.component";
 import {MatDialog} from "@angular/material/dialog";
+import {Post} from "../../components/post/post.component";
 
 @Component({
   selector: 'profile',
@@ -15,7 +16,10 @@ export class ProfileComponent {
   file: string = '';
   currentUser: User|null;
   userObjects:Object[] = [];
-  favoritesPosts:Post[] = [];
+  userPosts: Post[] = [];
+  favoritesPosts:favPost[] = [];
+  likedPosts: Post[] = [];
+
 
 
   constructor(private userService: UserService, public dialog: MatDialog) {
@@ -31,6 +35,16 @@ export class ProfileComponent {
           this.favoritesPosts = posts;
           console.log(this.userObjects);
         });
+      this.userService.getPostsOfUser(this.currentUser.id).subscribe(
+          posts => {
+            this.userPosts = posts;
+            console.log(this.userPosts);
+          });
+      this.userService.getPostsLikedByOtherByUserId(this.currentUser.id).subscribe(
+          posts => {
+            this.likedPosts = posts;
+            console.log(this.likedPosts);
+          });
     }
   }
 

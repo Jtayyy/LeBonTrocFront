@@ -1,5 +1,5 @@
 import {User} from "./user";
-import {Post} from "./post";
+import {favPost} from "./favPost";
 
 export class Object {
 
@@ -10,10 +10,10 @@ export class Object {
   description: string;
   condition: string;
   type: string;
-  posts: Post[];
+  posts: favPost[];
 
 
-  constructor(id: number, user: User, name: string, image: string, description: string, condition: string, type: string, posts: Post[]) {
+  constructor(id: number, user: User, name: string, image: string, description: string, condition: string, type: string, posts: favPost[]) {
     this.id = id;
     this.user = user;
     this.name = name;

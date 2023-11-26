@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Object} from "../model/object";
-import {Post} from "../model/post";
+import {favPost} from "../model/favPost";
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class ObjectService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  getPostsOfObject(id: number): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.apiUrl}/${id}/posts`);
+  getPostsOfObject(id: number): Observable<favPost[]> {
+    return this.http.get<favPost[]>(`${this.apiUrl}/${id}/posts`);
   }
 }

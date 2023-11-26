@@ -1,5 +1,5 @@
 import {Object} from "./object";
-export class Post {
+export class favPost {
 
   id: number;
   object: Object;
