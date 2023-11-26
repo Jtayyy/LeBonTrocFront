@@ -38,7 +38,6 @@ export class LoginComponent{
     if (this.loginForm.invalid) {
       return;
     }
-    console.log("Service email = login email", this.f["email"].value);
     const user : UserLoginDto = { email : this.f["email"].value, password: this.f["password"].value}
     this.userService.login(user).subscribe();
     this.router.navigate(['/']);

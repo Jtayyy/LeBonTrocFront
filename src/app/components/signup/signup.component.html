@@ -1,39 +1,49 @@
 <div class="signup-dialog">
-  <form name="registerForm" (submit)="signUp(user)">
+  <form name="registerForm" [formGroup]="registerForm" (submit)="signUp()">
     <h1 mat-dialog-title>Bonjour, enchanté, je m'appelle Bob. Et toi ?</h1>
     <div mat-dialog-content>
       <div class="forms">
         <div>Salut ! Je m'appelle&nbsp;</div>
-        <input type="text" class="form-control form-control-sm inputs" id="prenom" placeholder="prénom" [(ngModel)]="user.firstname" [ngModelOptions]="{standalone: true}">
+        <input type="text" class="form-control form-control-sm inputs" formControlName="firstname" id="prenom" placeholder="prénom" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['firstname'].errors }">
         &nbsp;
-        <input type="text" class="form-control form-control-sm inputs" id="nom" placeholder="nom"  [(ngModel)]="user.lastname" [ngModelOptions]="{standalone: true}">
+        <input type="text" class="form-control form-control-sm inputs" formControlName="lastname" id="nom" placeholder="nom" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['lastname'].errors }">
       </div>
       <div class="forms">
         <div>Mais tu peux m'appeler</div>
-        <input type="text" class="form-control form-control-sm inputs" id="pseudo" placeholder="pseudo"  [(ngModel)]="user.pseudo" [ngModelOptions]="{standalone: true}">
+        <input type="text" class="form-control form-control-sm inputs" formControlName="pseudo" id="pseudo" placeholder="pseudo" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['pseudo'].errors }">
+
         <div>:). </div>
       </div>
       <div class="forms">
         <div>Je suis né le</div>
-        <input type="date" class="form-control form-control-sm inputs" id="date de naissance" placeholder="" [(ngModel)]="user.birthdate" [ngModelOptions]="{standalone: true}">
+        <input type="date" class="form-control form-control-sm inputs" formControlName="birthdate" id="date de naissance" placeholder="" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['birthdate'].errors }">
+
         <div>et j'habite au</div>
-        <input type="text" class="form-control form-control-sm inputs" id="adresse" placeholder="adresse"  [(ngModel)]="user.address" [ngModelOptions]="{standalone: true}">
+        <input type="text" class="form-control form-control-sm inputs" formControlName="address" id="adresse" placeholder="adresse" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['address'].errors }">
       .
       </div>
       <br/>
       <br/>
       <div class="forms">
         <div>PS : Tu peux me contacter sur</div>
-        <input type="email" class="form-control form-control-sm inputs" id="mail" placeholder="mail"  [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}">
+        <input type="email" class="form-control form-control-sm inputs" formControlName="email" id="mail" placeholder="mail" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['email'].errors }">
       </div>
       <div class="forms">
         <div>PSS : Mon mot de passe est </div>
-        <input type="password" class="form-control form-control-sm inputs" id="password" placeholder="*************"  [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
+        <input type="password" class="form-control form-control-sm inputs" formControlName="password" id="password" placeholder="*************" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['password'].errors }">
       </div>
-
+      <div class="row">
+        <mat-error *ngIf="submitted && registerForm.controls['firstname'].invalid">{{getErrorMessageFirstname()}}</mat-error>
+        <mat-error *ngIf="submitted && registerForm.controls['lastname'].invalid">{{getErrorMessageLastname()}}</mat-error>
+        <mat-error *ngIf="submitted && registerForm.controls['pseudo'].invalid">{{getErrorMessagePseudo()}}</mat-error>
+        <mat-error *ngIf="submitted && registerForm.controls['birthdate'].invalid">{{getErrorMessageBirthdate()}}</mat-error>
+        <mat-error *ngIf="submitted && registerForm.controls['address'].invalid">{{getErrorMessageAddress()}}</mat-error>
+        <mat-error *ngIf="submitted && registerForm.controls['email'].invalid">{{getErrorMessageEmail()}}</mat-error>
+        <mat-error *ngIf="submitted && registerForm.controls['password'].invalid">{{getErrorMessagePassword()}}</mat-error>
+      </div>
     </div>
     <div mat-dialog-actions>
-      <button mat-raised-button color="primary" type="submit" [mat-dialog-close]="true">Créer un compte</button>
+      <button mat-raised-button color="primary" type="submit">Créer un compte</button>
       <button mat-button mat-dialog-close>Close</button>
     </div>
   </form>
