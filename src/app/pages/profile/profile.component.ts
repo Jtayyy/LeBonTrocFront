@@ -38,7 +38,7 @@ export class ProfileComponent {
       this.userService.getPostsLikedByOtherByUserId(this.currentUser.id).subscribe(
           posts => {
             this.likedPosts = posts;
-            console.log(this.likedPosts);
+            console.log('liked Posts: ', this.likedPosts);
           });
     }
   }

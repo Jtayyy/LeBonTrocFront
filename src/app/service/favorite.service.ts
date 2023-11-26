@@ -20,4 +20,9 @@ export class FavoriteService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
+  getFavoritePostById(id: number): Observable<Favorite>{
+    return this.http.get<Favorite>(`${this.apiUrl}/${id}`);
+  }
+
+
 }

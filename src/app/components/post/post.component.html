@@ -29,8 +29,8 @@
       </mat-grid-list>
     </mat-card>
     <div class="post-boutons">
-      <button mat-mini-fab class="btn-icon" (click)="addFavorites()">
-        <mat-icon>favorite</mat-icon>
+      <button mat-mini-fab class="btn-icon" (click)= "removeFavorites()">
+        <mat-icon>{{ isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
       </button>
     </div>
   </div>

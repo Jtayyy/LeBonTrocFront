@@ -4,26 +4,7 @@ import {FavoriteService} from "../../service/favorite.service";
 import {Favorite} from "../../model/favorite";
 import {UserRegisterDto} from "../../model/user.dto";
 import {UserService} from "../../service/user.service";
-
-
-export class Post {
-  object: string;
-  title:string;
-  user:string;
-  publication: string;
-  description: string;
-  address: string;
-
-  constructor(object: string, title: string, user: string, publication: string, description: string, adresse: string) {
-    this.object = object;
-    this.title = title;
-    this.user = user;
-    this.publication = publication;
-    this.description = description;
-    this.address = adresse;
-  }
-}
-
+import {Observable} from "rxjs";
 export interface Tile {
   color: string;
   cols: number;
@@ -40,14 +21,16 @@ export class PostComponent {
 
   @Input() receivedObject: any;
   @Output() childObject: EventEmitter<any> = new EventEmitter<any>();
+  isFavorite: boolean = false;
 
   constructor(private favoriteService: FavoriteService, private router: Router, private user: UserService) {
   }
 
   addFavorites(): void{
-    const favoritePost: Favorite = new Favorite(this.user.userValue,this.receivedObject);
+    const favoritePost: Favorite = new Favorite(0,this.user.userValue,this.receivedObject);
     this.favoriteService.addFavorite(favoritePost).subscribe(
       (response) => {
+        this.isFavorite = true;
         this.router.navigate(['/']);
       },
       (error) => {
@@ -56,15 +39,15 @@ export class PostComponent {
     );
   }
 
-  // removeFavorites(): void{
-  //   const favoritePost: Favorite = new Favorite(this.user.userValue,this.receivedObject);
-  //   this.favoriteService.removeFavorite(this.).subscribe(
-  //       (response) => {
-  //         this.router.navigate(['/']);
-  //       },
-  //       (error) => {
-  //         console.error('Erreur lors de l\'inscription', error);
-  //       }
-  //   );
-  //}
+  removeFavorites(): void {
+    console.log('Le post', this.receivedObject.id);
+    this.favoriteService.removeFavorite(this.receivedObject.id).subscribe(
+               (response) => {
+                 this.isFavorite = false;
+               },
+               (error) => {
+                 console.error('Erreur lors de la suppression des favoris', error);
+               }
+           );
+  }
 }
