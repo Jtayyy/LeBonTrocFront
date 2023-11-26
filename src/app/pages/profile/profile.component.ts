@@ -17,7 +17,7 @@ export class ProfileComponent {
   currentUser: User|null;
   userObjects:Object[] = [];
   userPosts: Post[] = [];
-  favoritesPosts:favPost[] = [];
+  favoritesPosts:Post[] = [];
   likedPosts: Post[] = [];
 
 

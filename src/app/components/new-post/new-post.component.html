@@ -7,6 +7,7 @@
         <select class="form-control form-control-sm inputs" formControlName="object_id" id="object_id" [ngClass]="{ 'is-invalid': submitted && CreatePostForm.controls['object_id'].errors }">
           <option *ngFor="let object of userObjects" [value]="object.id">{{ object.name }}</option>
         </select>
+        <div *ngIf="showAddObjectMessage" class="add-object-message">Vous devez d'abord ajouter un objet.</div>
       </div>
       <div class="forms">
         <div>Titre :</div>

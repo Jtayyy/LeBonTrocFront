@@ -27,6 +27,7 @@ export class NewPostComponent {
           this.userService.getObjectsOfUser(this.currentUser.id).subscribe(
               objects => {
                   this.userObjects = objects;
+                  this.showAddObjectMessage = this.userObjects.length === 0;
               });
       }
       this.CreatePostForm = this.formBuilder.group({
@@ -71,5 +72,6 @@ export class NewPostComponent {
             }
         );
     }
+    showAddObjectMessage: boolean = false;
 }
 

@@ -55,4 +55,16 @@ export class PostComponent {
       }
     );
   }
+
+  // removeFavorites(): void{
+  //   const favoritePost: Favorite = new Favorite(this.user.userValue,this.receivedObject);
+  //   this.favoriteService.removeFavorite(this.).subscribe(
+  //       (response) => {
+  //         this.router.navigate(['/']);
+  //       },
+  //       (error) => {
+  //         console.error('Erreur lors de l\'inscription', error);
+  //       }
+  //   );
+  }
 }

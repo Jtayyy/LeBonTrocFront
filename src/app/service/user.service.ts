@@ -91,9 +91,9 @@ export class UserService {
     return this.http.get<Post[]>(url);
   }
 
-  public getFavoritesByUserId(id: number): Observable<favPost[]> {
+  public getFavoritesByUserId(id: number): Observable<Post[]> {
     const url = `${this.usersUrl}/${id}/favorites`;
-    return this.http.get<favPost[]>(url);
+    return this.http.get<Post[]>(url);
   }
 
 }

@@ -15,4 +15,9 @@ export class FavoriteService {
   addFavorite(favoritePost: Favorite): Observable<void> {
     return this.http.post<void>(this.apiUrl, favoritePost);
   }
+
+  removeFavorite(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
 }

@@ -44,6 +44,12 @@
       }
     }
 
+    .add-object-message {
+      color: #ff0000;
+      margin-top: 4px;
+      font-size: 12px;
+    }
+
     textarea {
       height: 100px;
       resize: vertical;
@@ -91,5 +97,4 @@
         }
       }
     }
-
-}
+  }
