@@ -54,6 +54,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import {HttpClientModule} from "@angular/common/http";
 import { SignupComponent } from './components/signup/signup.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { NewPostComponent } from './components/new-post/new-post.component'
 
 
 let MatLabelModule;
@@ -105,6 +106,7 @@ const materialModules = [
     MarketplaceComponent,
     ProfileComponent,
     SignupComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,

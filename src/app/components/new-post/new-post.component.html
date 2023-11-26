@@ -1,0 +1,35 @@
+<div class="signup-dialog">
+  <form name="registerForm" [formGroup]="CreatePostForm" (submit)="createPost()">
+    <h1 mat-dialog-title>Nouveau Post</h1>
+    <div mat-dialog-content>
+      <div class="forms">
+        <div>Choisis un objet :</div>
+        <select class="form-control form-control-sm inputs" formControlName="object_id" id="object_id" [ngClass]="{ 'is-invalid': submitted && CreatePostForm.controls['object_id'].errors }">
+          <option *ngFor="let object of userObjects" [value]="object.id">{{ object.name }}</option>
+        </select>
+      </div>
+      <div class="forms">
+        <div>Titre :</div>
+        <input type="text" class="form-control form-control-sm inputs" formControlName="title" id="title" placeholder="Titre" [ngClass]="{ 'is-invalid': submitted && CreatePostForm.controls['title'].errors }">
+      </div>
+      <div class="forms">
+        <div>Description :</div>
+        <textarea class="form-control form-control-sm inputs" formControlName="description" id="description" placeholder="Description" [ngClass]="{ 'is-invalid': submitted && CreatePostForm.controls['description'].errors }"></textarea>
+      </div>
+      <div class="forms">
+        <div>Adresse :</div>
+        <input type="text" class="form-control form-control-sm inputs" formControlName="address" id="address" placeholder="Adresse" [ngClass]="{ 'is-invalid': submitted && CreatePostForm.controls['address'].errors }">
+      </div>
+      <div class="row">
+        <mat-error *ngIf="submitted && CreatePostForm.controls['object_id'].invalid">Sélectionnez un objet.</mat-error>
+        <mat-error *ngIf="submitted && CreatePostForm.controls['title'].invalid">Le titre est requis.</mat-error>
+        <mat-error *ngIf="submitted && CreatePostForm.controls['description'].invalid">La description est requise.</mat-error>
+        <mat-error *ngIf="submitted && CreatePostForm.controls['address'].invalid">L'adresse est requise.</mat-error>
+      </div>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" type="submit">Créer le Post</button>
+      <button mat-button mat-dialog-close>Close</button>
+    </div>
+  </form>
+</div>

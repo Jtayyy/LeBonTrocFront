@@ -3,6 +3,8 @@ import {User} from "../../model/user";
 import {UserService} from "../../service/user.service";
 import {Object} from "../../model/object";
 import {Post} from "../../model/post";
+import {NewPostComponent} from "../../components/new-post/new-post.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'profile',
@@ -16,7 +18,7 @@ export class ProfileComponent {
   favoritesPosts:Post[] = [];
 
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, public dialog: MatDialog) {
     this.currentUser = this.userService.userValue;
     if(this.currentUser){
       this.userService.getObjectsOfUser(this.currentUser.id).subscribe(
@@ -48,5 +50,9 @@ export class ProfileComponent {
     if(input){
       input.value = "";
     }
+  }
+
+  openNewPostForm(){
+    this.dialog.open(NewPostComponent);
   }
 }
