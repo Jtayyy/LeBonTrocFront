@@ -10,10 +10,11 @@ export class Object {
   description: string;
   condition: string;
   type: string;
+  value: number;
   posts: favPost[];
 
 
-  constructor(id: number, user: User, name: string, image: string, description: string, condition: string, type: string, posts: favPost[]) {
+  constructor(id: number, user: User, name: string, image: string, description: string, condition: string, type: string, value: number, posts: favPost[]) {
     this.id = id;
     this.user = user;
     this.name = name;
@@ -21,6 +22,7 @@ export class Object {
     this.description = description;
     this.condition = condition;
     this.type = type;
+    this.value = value;
     this.posts = posts;
   }
 }

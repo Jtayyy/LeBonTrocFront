@@ -20,20 +20,16 @@ export class ProfileComponent {
   favoritesPosts:Post[] = [];
   likedPosts: Post[] = [];
 
-
-
   constructor(private userService: UserService, public dialog: MatDialog) {
     this.currentUser = this.userService.userValue;
     if(this.currentUser){
       this.userService.getObjectsOfUser(this.currentUser.id).subscribe(
         objects => {
           this.userObjects = objects;
-          console.log(this.userObjects);
         });
       this.userService.getFavoritesByUserId(this.currentUser.id).subscribe(
         posts => {
           this.favoritesPosts = posts;
-          console.log(this.userObjects);
         });
       this.userService.getPostsOfUser(this.currentUser.id).subscribe(
           posts => {
