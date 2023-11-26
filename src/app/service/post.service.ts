@@ -30,4 +30,8 @@ export class PostService {
   deletePost(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  getPostsByObjectType(type: String): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.apiUrl}/type/${type}`);
+  }
 }
