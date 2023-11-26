@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {favPost} from "../../model/favPost";
+import {Post} from "../../model/post";
 import {PostService} from "../../service/post.service";
 import {NavbarService} from "../../service/navbar.service";
 
@@ -10,7 +10,7 @@ import {NavbarService} from "../../service/navbar.service";
 })
 export class MarketplaceComponent{
 
-  posts: favPost[] = [];
+  posts: Post[] = [];
   searchType: String = "Tout";
 
   constructor(private postService: PostService, private navbarService: NavbarService) {

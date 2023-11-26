@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {favPost} from "../model/favPost";
+import {Post} from "../model/post";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Favorite} from "../model/favorite";

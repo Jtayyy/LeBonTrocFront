@@ -6,8 +6,7 @@ import {map} from "rxjs/operators";
 import {Router} from "@angular/router";
 import {UserLoginDto} from "../model/user.dto";
 import {Object} from "../model/object";
-import {favPost} from "../model/favPost";
-import {Post} from "../components/post/post.component";
+import {Post} from "../model/post";
 
 @Injectable({
   providedIn: 'root'

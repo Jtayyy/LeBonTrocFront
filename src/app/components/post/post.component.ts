@@ -66,5 +66,5 @@ export class PostComponent {
   //         console.error('Erreur lors de l\'inscription', error);
   //       }
   //   );
-  }
+  //}
 }

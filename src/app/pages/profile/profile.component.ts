@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import {User} from "../../model/user";
 import {UserService} from "../../service/user.service";
 import {Object} from "../../model/object";
-import {favPost} from "../../model/favPost";
+import {Post} from "../../model/post";
 import {NewPostComponent} from "../../components/new-post/new-post.component";
 import {MatDialog} from "@angular/material/dialog";
-import {Post} from "../../components/post/post.component";
 
 @Component({
   selector: 'profile',

@@ -6,7 +6,7 @@ import {PostService} from "../../service/post.service";
 import {ObjectService} from "../../service/object.service";
 import {UserService} from "../../service/user.service";
 import {User} from "../../model/user";
-import {favPost} from "../../model/favPost";
+import {Post} from "../../model/post";
 import {Object} from "../../model/object";
 
 @Component({
@@ -48,7 +48,7 @@ export class NewPostComponent {
 
         this.objectService.findById(this.f["object_id"].value).subscribe(
             (object) => {
-                const postData: favPost = {
+                const postData: Post = {
                     id:0,
                     object: object,
                     title: this.f["title"].value,
