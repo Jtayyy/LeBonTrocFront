@@ -1,8 +1,12 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {Router} from "@angular/router";
 import {FavoriteService} from "../../service/favorite.service";
 import {Favorite} from "../../model/favorite";
 import {UserService} from "../../service/user.service";
+import {Item} from "../../model/item";
+import {PostService} from "../../service/post.service";
+import {User} from "../../model/user";
+import {ItemService} from "../../service/item.service";
 export interface Tile {
   color: string;
   cols: number;
@@ -15,13 +19,32 @@ export interface Tile {
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
 })
-export class PostComponent {
+export class PostComponent implements OnChanges {
 
   @Input() receivedObject: any;
+  itemOfPost: Item|null = null;
+  userOfItem: User|null = null;
   @Output() childObject: EventEmitter<any> = new EventEmitter<any>();
   isFavorite: boolean = false;
 
-  constructor(private favoriteService: FavoriteService, private router: Router, private user: UserService) {
+  constructor(private favoriteService: FavoriteService, private router: Router, private user: UserService, private postService: PostService,  private itemService: ItemService) {
+
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['receivedObject'] && changes['receivedObject'].currentValue) {
+      this.postService.getItemByPostId(changes['receivedObject'].currentValue.id).subscribe(
+        (item) => {
+          this.itemOfPost = item;
+          this.itemService.getUserByItemId(this.itemOfPost?.id).subscribe(
+            (user) => {
+              this.userOfItem = user;
+            }
+          );
+        }
+      );
+
+    }
   }
 
   addFavorites(): void{

@@ -3,8 +3,13 @@
   padding: 0;
   display: grid;
   width: 700px;
-  height: 100%;
+  height: 500px;
   overflow: auto;
+}
+
+.element-img{
+  max-width: 300px;
+  max-height: 300px;
 }
 
 .description{
@@ -17,11 +22,11 @@
 
 .post-boutons{
   position: sticky;
+  display: flex;
+  height: 70px;
   bottom: 0;
   z-index: 110;
-  display: flex;
   justify-content: center;
   padding: 10px;
   background-color: rgba(0, 63, 55, 0.76);
-
 }

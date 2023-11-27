@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Item} from "../model/item";
 import {Post} from "../model/post";
+import {User} from "../model/user";
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,9 @@ export class ItemService {
 
   getPostsOfItem(id: number): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.apiUrl}/${id}/posts`);
+  }
+
+  getUserByItemId(id: number|undefined): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/${id}/user`);
   }
 }

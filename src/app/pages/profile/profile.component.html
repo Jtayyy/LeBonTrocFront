@@ -40,21 +40,6 @@
   <mat-divider></mat-divider>
   <div class="profile-items">
     <mat-tab-group style="width:80%">
-      <mat-tab label="Mes objets">
-        <div *ngFor="let item of userItems">
-          <mat-card class="example-card items-cards">
-            <mat-card-header>
-              <mat-card-title>{{item.name}}</mat-card-title>
-            </mat-card-header>
-            <img mat-card-image src="{{item.image}}" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p>
-                {{item.description}}
-              </p>
-            </mat-card-content>
-          </mat-card>
-        </div>
-      </mat-tab>
       <mat-tab label="Mes posts">
         <div class="list-favorites-posts" *ngFor="let post of userPosts">
           <post [receivedObject]="post"></post>
@@ -65,8 +50,9 @@
           <post [receivedObject]="post"></post>
         </div>
       </mat-tab>
-      <mat-tab label="Vos posts aimés par d'autres">
+      <mat-tab label="Mes posts aimés par d'autres">
         <div class="list-favorites-posts" *ngFor="let post of likedPosts">
+
           <post [receivedObject]="post"></post>
         </div>
       </mat-tab>

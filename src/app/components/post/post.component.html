@@ -1,37 +1,23 @@
 <div class="element">
-  <div class="card">
-    <mat-card>
-      <img class="col" mat-card-image src="https://assurance.carrefour.fr/var/site/storage/images/2/0/9/2/1022902-166-fre-FR/PC%20casse%20fond-compressed.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{receivedObject.title}}</mat-card-title>
-        <mat-card-subtitle>{{receivedObject.user}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content class="post-description">
-        <p style="text-justify: inter-word">
-          {{receivedObject.description}}
-        </p>
-        Valeur : {{receivedObject.item}}
-      </mat-card-content>
-      <mat-grid-list cols="3" rowHeight="2:1">
-        <mat-grid-tile [colspan]="3" [rowspan]="1">
-          <img class="col" mat-card-image src="https://assurance.carrefour.fr/var/site/storage/images/2/0/9/2/1022902-166-fre-FR/PC%20casse%20fond-compressed.jpg" alt="Photo of a Shiba Inu">
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="2">
-          <img class="col" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="2">
-          <img class="col" mat-card-image style="object-fit: cover" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="2">
-          <img class="col" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        </mat-grid-tile>
-      </mat-grid-list>
-    </mat-card>
-    <div class="post-boutons">
-      <button mat-mini-fab class="btn-icon" (click)= "removeFavorites()">
-        <mat-icon>{{ isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
-      </button>
+  <mat-card style="width:100%; height:500px">
+    <div style="display: flex; justify-content: center; margin-top: 10px">
+      <img class="col element-img" mat-card-image src="{{itemOfPost?.image}}" alt="Photo of a Shiba Inu">
     </div>
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{receivedObject.title}}</mat-card-title>
+      <mat-card-subtitle>{{userOfItem?.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="post-description">
+      <p style="text-justify: inter-word">
+        {{receivedObject.description}}
+      </p>
+      Valeur : {{itemOfPost?.value}} points.
+    </mat-card-content>
+  </mat-card>
+  <div class="post-boutons">
+    <button mat-mini-fab class="btn-icon" (click)= "removeFavorites()">
+      <mat-icon>{{ isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+    </button>
   </div>
 </div>

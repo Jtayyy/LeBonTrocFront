@@ -76,7 +76,7 @@ export class UserService {
   }
 
   public getItemsOfUser(id: number): Observable<Item[]> {
-    const url = `${this.usersUrl}/${id}/objects`;
+    const url = `${this.usersUrl}/${id}/items`;
     return this.http.get<Item[]>(url);
   }
 

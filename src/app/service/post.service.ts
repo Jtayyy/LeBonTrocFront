@@ -39,4 +39,5 @@ export class PostService {
   getItemByPostId(id: number): Observable<Item> {
     return this.http.get<Item>(`${this.apiUrl}/${id}/item`);
   }
+
 }
